@@ -3,8 +3,8 @@ module.exports = {
     dialect: 'postgres', 
     host: 'localhost',
     port: '5432',
-    database: 'onebitflix_development',
-    username: 'onebitflix',
-    password: 'onebitflix'
+    database: 'highcourses_development',
+    username: 'highcourses',
+    password: 'highcourses'
   }
 }

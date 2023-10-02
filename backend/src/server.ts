@@ -1,14 +1,19 @@
-import express from 'express'
-import { sequelize } from './database'
+import express from "express";
+import { sequelize } from "./database";
+import { adminjs, adminJsRouter } from "./adminjs";
 
-const app = express()
+const app = express();
 
-const PORT = process.env.PORT || 3000
+app.use(express.static("public"));
+
+app.use(adminjs.options.rootPath, adminJsRouter);
+
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   sequelize.authenticate().then(() => {
-    console.log('DB connection successfull')
-  })
-  
-  console.log(`Server started successfuly at port ${PORT}`)
-})
+    console.log("DB connection successfull");
+  });
+
+  console.log(`Server started successfuly at port ${PORT}`);
+});
