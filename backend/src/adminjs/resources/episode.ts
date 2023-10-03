@@ -2,48 +2,50 @@ import uploadFileFeature from "@adminjs/upload";
 import { FeatureType, ResourceOptions } from "adminjs";
 import path from "path";
 
-export const courseResourceOptions: ResourceOptions = {
+export const episodeResourceOptions: ResourceOptions = {
   navigation: "Catálogo",
   editProperties: [
     "name",
     "synopsis",
-    "uploadThumbnail",
-    "featured",
-    "categoryId",
+    "courseId",
+    "order",
+    "uploadVideo",
+    "secondsLong",
   ],
   filterProperties: [
     "name",
     "synopsis",
-    "featured",
-    "categoryId",
+    "courseId",
+    "secondsLong",
     "createdAt",
     "updatedAt",
   ],
-  listProperties: ["id", "name", "featured", "categoryId"],
+  listProperties: ["id", "name", "courseId", "order", "secondsLong"],
   showProperties: [
     "id",
     "name",
     "synopsis",
-    "featured",
-    "thumbnailUrl",
-    "categoryId",
+    "courseId",
+    "order",
+    "videoUrl",
+    "secondsLong",
     "createdAt",
     "updatedAt",
   ],
 };
 
-export const courseResourceFeatures: FeatureType[] = [
+export const episodeResourceFeatures: FeatureType[] = [
   uploadFileFeature({
     provider: {
       local: {
-        bucket: path.join(__dirname, "../../../public"),
+        bucket: path.join(__dirname, "../../../uploads"),
       },
     },
     properties: {
-      key: "thumbnailUrl",
-      file: "uploadThumbnail",
+      key: "videoUrl",
+      file: "uploadVideo",
     },
     uploadPath: (record, filename) =>
-      `thumbnails/course-${record.get("id")}/${filename}`,
+      `videos/course-${record.get("courseId")}/${filename}`,
   }),
 ];
