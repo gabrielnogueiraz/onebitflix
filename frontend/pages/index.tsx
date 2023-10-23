@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/HomeNoAuth.module.scss";
+import HeaderNoAuth from "@/src/components/homeNoAuth/HeaderNoAuth";
 
 const HomeNoAuth = () => {
   return (
@@ -13,7 +14,9 @@ const HomeNoAuth = () => {
           content="Tenha acesso aos melhores conteúdos de programação de uma forma simples e fácil!"
         />
       </Head>
-      <main></main>
+      <main>
+        <HeaderNoAuth />
+      </main>
     </>
   );
 };
