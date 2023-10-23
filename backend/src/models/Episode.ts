@@ -16,7 +16,9 @@ export interface EpisodeCreationAttributes
 
 export interface EpisodeInstance
   extends Model<Episode, EpisodeCreationAttributes>,
-    Episode {}
+    Episode {
+  watchTime: any;
+}
 
 export const Episode = sequelize.define<EpisodeInstance, Episode>("Episode", {
   id: {
