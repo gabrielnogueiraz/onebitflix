@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/HomeNoAuth.module.scss";
 import HeaderNoAuth from "@/src/components/homeNoAuth/HeaderNoAuth";
 import PresentatonSection from "@/src/components/homeNoAuth/presentationSection";
+import CardsSection from "@/src/components/homeNoAuth/cardsSection";
 
 const HomeNoAuth = () => {
   return (
@@ -17,9 +18,10 @@ const HomeNoAuth = () => {
       </Head>
       <main>
         <div className={styles.sectionBackground}>
-        <HeaderNoAuth />
-        <PresentatonSection />
+          <HeaderNoAuth />
+          <PresentatonSection />
         </div>
+        <CardsSection />
       </main>
     </>
   );
